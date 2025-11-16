@@ -1,0 +1,227 @@
+/* 전체 배경 & 기본 폰트 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Pretendard", system-ui, sans-serif;
+  background: linear-gradient(to top, #ffe7a0, #fffbe6);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* 가운데 카드 */
+.container {
+  max-width: 420px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  margin-top: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/* 입력 영역 */
+.input-group {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.input-group input {
+  width: 90%;
+  padding: 10px;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+/* 레벨 버튼 */
+.levels {
+  margin: 10px 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.level-btn {
+  flex: 1;
+  margin: 4px;
+  padding: 8px 0;
+  border: none;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.level-btn.selected {
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* 각 점수별 색 (선택되었을 때) */
+.level-btn[data-level="1"].selected { background-color: #f44336; }  /* 매우 나쁨 - 빨강 */
+.level-btn[data-level="2"].selected { background-color: #ff9800; }
+.level-btn[data-level="3"].selected { background-color: #ffc107; }
+.level-btn[data-level="4"].selected { background-color: #8bc34a; }
+.level-btn[data-level="5"].selected { background-color: #4caf50; }  /* 매우 좋음 - 초록 */
+
+/* 제출 버튼 */
+.submit {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+  width: 90%;
+  max-width: 260px;
+}
+
+.submit:hover {
+  background-color: #43a047;
+}
+
+/* 섹션 */
+.thermo-section,
+.wordcloud-section {
+  margin-top: 25px;
+}
+
+/* 온도계 */
+.thermo {
+  margin-top: 10px;
+}
+
+.thermo-bar {
+  width: 80%;
+  height: 200px;
+  background: #eee;
+  margin: 10px auto 5px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.thermo-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(to top, #f44336 0%, #ffc107 50%, #4caf50 100%);
+  transition: height 0.8s ease-in-out;
+}
+
+.avg-level {
+  font-size: 15px;
+  color: #444;
+  margin: 4px 0;
+}
+
+.status-text {
+  font-size: 15px;
+  margin-top: 8px;
+  color: #333;
+}
+
+.mission-text {
+  font-size: 14px;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* 로그 */
+.log-title {
+  margin-top: 25px;
+  font-size: 17px;
+  color: #444;
+}
+
+.emotion-log {
+  list-style: none;
+  padding: 0;
+  margin: 10px 15px 0;
+  max-height: 180px;
+  overflow-y: auto;
+  text-align: left;
+  font-size: 14px;
+}
+
+.emotion-log li {
+  padding: 4px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+/* 워드 클라우드 영역 */
+#word-cloud {
+  margin: 15px auto 0;
+  width: 100%;
+  max-width: 360px;
+  height: 220px;
+  background: #fafafa;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+.wordcloud-empty {
+  font-size: 14px;
+  color: #666;
+  padding-top: 90px;
+}
+
+/* 토스트 메시지 */
+#toast {
+  visibility: hidden;
+  min-width: 180px;
+  margin-left: -90px;
+  background-color: #4caf50;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+  position: fixed;
+  left: 50%;
+  bottom: 50px;
+  font-size: 16px;
+  z-index: 9999;
+}
+
+#toast.show {
+  visibility: visible;
+  animation: fadeInOut 2s;
+}
+
+/* 애니메이션 */
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  10%, 90% { opacity: 1; }
+}
+
+/* 반응형 */
+@media (max-width: 480px) {
+  .container {
+    margin: 15px;
+    padding: 16px;
+  }
+
+  .thermo-bar {
+    height: 180px;
+  }
+
+  #word-cloud {
+    height: 200px;
+  }
+}
